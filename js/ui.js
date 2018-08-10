@@ -38,7 +38,7 @@ class UI {
           <span class="badge badge-primary">Followers : ${user.following}</span>
           <br /><br />
           <ul class="list-group">
-            ${`<li class="list-group-item">Company : ${user.company}</li>`}
+            <li class="list-group-item">Company : ${user.company}</li>
             <li class="list-group-item">Website : <a href="${user.blog}" target="_blank">${
       user.blog
     }</a></li>
@@ -58,16 +58,18 @@ class UI {
 
     repos.forEach(function(repo) {
       output += `
-        <div class="card card-body mb-2">
-          <div class="row">
-            <div class="col-md-6">
-              <a href="${repo.html_url}" targe="_blank">${repo.name}</a>
-              <span class="badge badge-primary">Stars : ${repo.stargazers_count}</span>
-            <span class="badge badge-primary">Watchers : ${repo.watchers_count}</span>
-            <span class="badge badge-primary">Forks : ${repo.froms_count}</span>
-            </div>
-          </div>
+      <div class="card card-body mb-2">
+      <div class="row">
+        <div class="col-md-6">
+          <a href="${repo.html_url}" target="_blank">${repo.name}</a>
         </div>
+        <div class="col-md-6">
+        <span class="badge badge-primary">Stars: ${repo.stargazers_count}</span>
+        <span class="badge badge-danger">Watchers: ${repo.watchers_count}</span>
+        <span class="badge badge-success">Forks: ${repo.forks}</span>
+        </div>
+      </div>
+    </div>
       `;
     });
 
